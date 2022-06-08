@@ -1,0 +1,5 @@
+site_name: MMC Device Landing Page
+site_url: https://makersmakingchange.github.io/simple-landing/
+nav:
+  - Home: index.md
+  - About: about.md
