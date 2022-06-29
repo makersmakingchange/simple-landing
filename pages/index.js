@@ -21,9 +21,9 @@ export default function Home() {
       <div className="bg-gray-100 w-screen">
         <h1 className="text-xl p-6">Welcome to MMC Simple Device Landing Page</h1>
         <ul>
-          <li><a href="https://github.com/makersmakingchange/Switch-Adapter-DualMono-Stereo/blob/main/Build_Files/3D_Printing_Files/Bottom.stl">Bottom.stl</a></li>
-          <li><a href="https://github.com/makersmakingchange/Switch-Adapter-DualMono-Stereo/blob/main/Build_Files/3D_Printing_Files/Top.stl">Top.stl</a></li>
-          <li><a href="https://github.com/makersmakingchange/Switch-Adapter-DualMono-Stereo/blob/main/Design_Files/SwitchAdapter-Dual-Mono-Stereo_v11.f3z">SwitchAdapter-Dual-Mono-Stereo_v11.f3z</a></li>
+          <li><a href="https://github.com/makersmakingchange/Switch-Adapter-DualMono-Stereo/raw/main/Build_Files/3D_Printing_Files/Bottom.stl">Bottom.stl</a></li>
+          <li><a href="https://github.com/makersmakingchange/Switch-Adapter-DualMono-Stereo/raw/main/Build_Files/3D_Printing_Files/Top.stl">Top.stl</a></li>
+          <li><a href="https://github.com/makersmakingchange/Switch-Adapter-DualMono-Stereo/raw/main/Design_Files/SwitchAdapter-Dual-Mono-Stereo_v11.f3z">SwitchAdapter-Dual-Mono-Stereo_v11.f3z</a></li>
           <li><a href="https://github.com/makersmakingchange/Switch-Adapter-DualMono-Stereo/raw/main/Documentation/Dual-Mono-Stereo_Adapter_3D_Print_Guide_v1.0.pdf">Dual-Mono-Stereo_Adapter_3D_Print_Guide_v1.0.pdf</a></li>
           
        </ul>
