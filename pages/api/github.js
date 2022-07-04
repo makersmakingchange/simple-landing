@@ -20,7 +20,7 @@ export default async function handler(req, res) {
         'directoryName': item.name        
       })
       files.push({
-        'fileName': getFiles(req.query.user, repo, item.path),
+        'fileName':await (await getFiles(req.query.user, repo, item.path)).data,
         'parentDirectory': item.path
       });
     }
@@ -33,12 +33,12 @@ export default async function handler(req, res) {
     
 
   }
-  res.status(200).json(getFiles(req.query.user, repo, repoRoot.data[3].path));
+  res.status(200).json({
+    "directories": directories,
+    "files": files
+  });
 
 }
-const getFiles = (user, repo, path) => {
-  
-   octokit.request(`GET /repos/${user}/${repo}/contents/${path}`).then((file) =>{
-    return files.data
-   }).catch((err) => {});
+const getFiles = async(user, repo, path) => {
+  return await octokit.request(`GET /repos/${user}/${repo}/contents/${path}`);
 }
