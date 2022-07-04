@@ -10,16 +10,16 @@ export default function Home() {
     }
   }).catch(()=>{});
   return ( 
-    <div className="bg-red-200 w-full h-full flex" >
-      <div className="bg-gray-500 h-screen">
+    <div className="" >
+      <div className="">
         <h1 className=""> MMC Simple Device Landing</h1>
         <input type="text" className="" placeholder="Search docs"/>
         <div>
           <div>Dual Mono-switch Adapter</div>
         </div>
       </div>
-      <div className="bg-gray-100 w-screen">
-        <h1 className="text-xl p-6">Welcome to MMC Simple Device Landing Page</h1>
+      <div className="">
+        <h1 className="">Welcome to MMC Simple Device Landing Page</h1>
         <ul>
           <li><a href="https://github.com/makersmakingchange/Switch-Adapter-DualMono-Stereo/raw/main/Build_Files/3D_Printing_Files/Bottom.stl">Bottom.stl</a></li>
           <li><a href="https://github.com/makersmakingchange/Switch-Adapter-DualMono-Stereo/raw/main/Build_Files/3D_Printing_Files/Top.stl">Top.stl</a></li>
