@@ -11,8 +11,15 @@ export default function Home() {
   
   useEffect(() => {
     axios.get('/api/github?user=makersmakingchange').then((respose) => {
-      setDirectories(respose.data.directories);      
-    }).catch(() => {});
+      let directories = respose.data.directories;
+      let dirs = [];
+      for (let i = 0; i < directories.length; i++) {
+        if (directories[i].directoryName != 'repoRoot'){
+          dirs.push(directories[i])
+        }
+      }
+      setDirectories(dirs)
+    }).catch(() => {}); 
   }, []);
 
   return ( 
@@ -28,15 +35,30 @@ export default function Home() {
     </div> 
     </div> 
     <div className = "" >
-    <h1 className = "" > Welcome to MMC Simple Device Landing Page </h1> 
+    <h1 className = "" > Welcome  to MMC Simple Device Landing Page </h1> 
     <ul>
        {
-        directories.map((file, i) => {
-          console.log(file.files);
+        directories.map((content, i) => {                  
           return(
-            <p key={i}>{file.name}</p>
+            <div key={i}>
+            <p key={i}>{content.directoryName}</p>  
+            {
+            (typeof(content.files) == 'object') ?
+              <div>
+                {
+                  content.files.map((file, j) =>
+                    <p key={j}>{file.name}</p>
+                  )
+                }
+                </div>
+                :
+                null
+       }
+          
+           </div> 
           )
-        })
+           })
+           
        }
     </ul>    
     </div>
