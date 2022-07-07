@@ -17,7 +17,7 @@ export default async function handler(req, res) {
     if(item.type === 'dir'){
       directories.push({
         'directoryName': item.name,
-        //'files': await (await getFiles(req.query.user, repo, item.path)).data
+        'files': await (await getFiles(req.query.user, repo, item.path)).data
       });
     }
     else{ 
@@ -30,9 +30,9 @@ export default async function handler(req, res) {
     
 
   }
-  res.status(200).json(
-    await getFiles(req.query.user, repo, 'Build_Files')
-  );
+  res.status(200).json({
+    'directories': directories
+  });
 
 }
 const getFiles = async(user, repo, path) => {
