@@ -13,6 +13,8 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
+    env:
+       GITHUB_AUTH_TOKEN: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
     steps:
     - uses: actions/checkout@v3
     - name: Use Node.js ${{ matrix.node-version }}
