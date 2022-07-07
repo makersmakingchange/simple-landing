@@ -4,7 +4,7 @@ import {
 } from '@octokit/core';
 
 const octokit = new Octokit({
-  auth: process.env.GITHUB_AUTH_TOKEN
+  auth: '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'//process.env.GITHUB_AUTH_TOKEN
 })
 
 export default async function handler(req, res) {
@@ -17,10 +17,10 @@ export default async function handler(req, res) {
     if(item.type === 'dir'){
       directories.push({
         'directoryName': item.name,
-        'files': await (await getFiles(req.query.user, repo, item.path)).data
+        //'files': await (await getFiles(req.query.user, repo, item.path)).data
       });
     }
-    else{
+    else{ 
       directories.push({
         'directoryName': 'repoRoot',
         'files': item.name
@@ -30,11 +30,18 @@ export default async function handler(req, res) {
     
 
   }
-  res.status(200).json({
-    "directories": directories
-  });
+  res.status(200).json(
+    await getFiles(req.query.user, repo, 'Build_Files')
+  );
 
 }
 const getFiles = async(user, repo, path) => {
-  return await octokit.request(`GET /repos/${user}/${repo}/contents/${path}`);
+ const files = await octokit.request(`GET /repos/${user}/${repo}/contents/${path}`);
+ for (let i = 0; i < files.data.length; i++) {
+  if (files.data[i].type === 'dir'){
+    getFiles(user, repo, files.data[i].path);
+  }
+ }
+ return files
+ 
 }
